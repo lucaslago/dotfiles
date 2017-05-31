@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+alias vim=$HOME/Development/Projects/OSS/vim/src/vim
+
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/lucas/.oh-my-zsh
@@ -84,7 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias tmux='TERM=xterm-256color tmux'
 ###-begin-npm-completion-###
 #
 # npm command completion script

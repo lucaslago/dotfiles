@@ -62,7 +62,6 @@ set colorcolumn=120
 set incsearch
 set textwidth=100
 set showmatch
-set visualbell
 set noswapfile
 set smartcase	
 set ignorecase
@@ -73,6 +72,7 @@ set smarttab
 set ruler
 set undolevels=1000
 set backspace=indent,eol,start 
+set matchtime=0
 
 colorscheme gruvbox
 set t_Co=256
