@@ -37,15 +37,6 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#branch#enabled = 0
 " put a buffer list at the top
 let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ':t'
-
-" Elm Vim config
-let g:polyglot_disabled = ['elm']
-let g:elm_detailed_complete = 1
-let g:elm_format_autosave = 1
-let g:elm_syntastic_show_warnings = 1
-autocmd BufNewFile,BufRead *.md set spell | set lbr | set nonu
-let g:markdown_fenced_languages = ['html', 'json', 'css', 'javascript', 'elm', 'vim']
 
 " ALE config
 let g:ale_fixers = {
@@ -61,9 +52,9 @@ let g:ale_linters = {
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_sign_error = 'X' " could use emoji
-let g:ale_sign_warning = '?' " could use emoji
-let g:ale_statusline_format = ['X %d', '? %d', '']
+let g:ale_sign_error = '😡' " could use emoji
+let g:ale_sign_warning = '🤔' " could use emoji
+let g:ale_statusline_format = ['😡 %d', '🤔 %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
