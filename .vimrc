@@ -17,6 +17,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'elmcast/elm-vim', {'for': 'elm'}
 Plug 'w0rp/ale'
+Plug 'flowtype/vim-flow'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -52,13 +54,21 @@ let g:ale_linters = {
 \}
 highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
 highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-let g:ale_sign_error = '😡' " could use emoji
-let g:ale_sign_warning = '🤔' " could use emoji
-let g:ale_statusline_format = ['😡 %d', '🤔 %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
 let g:ale_echo_msg_format = '%linter% says %s'
 " Map keys to navigate between lines with errors and warnings.
+
+" vim-flow config
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
+
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
@@ -113,3 +123,11 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 com! FormatJSON %!python -m json.tool
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
