@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  frontend-search npm nvm yarn git
+  npm nvm yarn git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,4 +106,14 @@ export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export AWS_SDK_LOAD_CONFIG=true
 
-. /usr/local/bin/z.sh
+
+alias delete-branches="git branch --merged | grep -Ev '(^\*|master)' | xargs git branch -d"
+
+function change-mac() {
+  local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+  sudo ifconfig en0 ether $mac
+  sudo ifconfig en0 down
+  sudo ifconfig en0 up
+  echo "Your new physical address is $mac"
+}
+
