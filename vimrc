@@ -4,7 +4,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -71,8 +72,6 @@ endif
 map <C-\> :NERDTreeToggle<CR>
 
 " Airline config
-let g:airline_powerline_fonts = 1
-" don't count trailing whitespace since it lags in huge files
 let g:airline#extensions#whitespace#enabled = 0
 " disable to improve fugitive performance
 let g:airline#extensions#branch#enabled = 0

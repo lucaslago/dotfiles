@@ -38,7 +38,6 @@ sudo apt install -y \
 # chrome
 if ! google-chrome-stable --help &> /dev/null
 then
-		
 	wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
 	 && sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
 	 && sudo apt update \
@@ -52,6 +51,31 @@ sudo snap install authy --beta
 VIM_PLUG_FILE="${HOME}/.vim/autoload/plug.vim"
 if [ ! -f "${VIM_PLUG_FILE}" ]; then
   echo " ==> Vim plugins will be installed on vim startup"
+  # curl -fLo ${VIM_PLUG_FILE} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  # mkdir -p "${HOME}/.vim/plugged"
+  # pushd "${HOME}/.vim/plugged"
+  # git clone "https://github.com/morhetz/gruvbox"
+  # git clone "https://github.com/scrooloose/nerdtree"
+  # git clone "https://github.com/Xuyuanp/nerdtree-git-plugin"
+  # git clone "https://github.com/tpope/vim-sensible"
+  # git clone "https://github.com/tpope/vim-surround"
+  # git clone "https://github.com/Raimondi/delimitMate"
+  # git clone "https://github.com/vim-airline/vim-airline"
+  # git clone "https://github.com/neoclide/coc.nvim/tree/release"
+  # git clone "https://github.com/othree/yajs.vim"
+  # git clone "https://github.com/HerringtonDarkholme/yats.vim"
+  # git clone "https://github.com/hashivim/vim-terraform"
+  # git clone "https://github.com/tpope/vim-commentary"
+  # git clone "https://github.com/junegunn/fzf.vim"
+  # git clone "https://github.com/APZelos/blamer.nvim"
+  # git clone "https://github.com/liuchengxu/vim-which-key"
+  # git clone "https://github.com/sheerun/vim-polyglot"
+  # popd
+fi
+
+NEOVIM_PLUG_FILE="${HOME}/.local/share/nvim/site/autoload/plug.vim"
+if [ ! -f "${NEOVIM_PLUG_FILE}" ]; then
+  echo " ==> Neovim plugins will be installed on vim startup"
   # curl -fLo ${VIM_PLUG_FILE} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   # mkdir -p "${HOME}/.vim/plugged"
   # pushd "${HOME}/.vim/plugged"
@@ -98,7 +122,7 @@ if [ ! -d ~/Development/dotfiles ]; then
   git remote set-url origin git@github.com:lucaslago/dotfiles.git
 
   ln -sf $(pwd)/vimrc "${HOME}/.vimrc"
-  ln -sf $(pwd)/init.vim "${HOME}/.config/nvim/init.vim"
+  mkdir -p "${HOME}/.config/nvim" && ln -sf $(pwd)/init.vim "${HOME}/.config/nvim/init.vim"
   ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
   ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
   ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
@@ -108,9 +132,6 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
   echo " ==> Installing tmux plugins"
   git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
   ${HOME}/.tmux/plugins/tpm/bin/install_plugins
-  #  git clone https://github.com/tmux-plugins/tmux-open.git "${HOME}/.tmux/plugins/tmux-open"
-#  git clone https://github.com/tmux-plugins/tmux-yank.git "${HOME}/.tmux/plugins/tmux-yank"
-#  git clone https://github.com/tmux-plugins/tmux-prefix-highlight.git "${HOME}/.tmux/plugins/tmux-prefix-highlight"
 fi
 
 echo "Done!"

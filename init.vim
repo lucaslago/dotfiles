@@ -1,10 +1,13 @@
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
+if !filereadable(autoload_plug_path)
+  silent execute '!curl -fLo ' . autoload_plug_path . '  --create-dirs 
+      \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+unlet autoload_plug_path
 
-call plug#begin()
+" Use neovim config path abstraction
+call plug#begin(stdpath('data').'/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -13,6 +16,7 @@ Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -22,6 +26,9 @@ Plug 'junegunn/fzf.vim'
 " FZF vim integrations
 Plug 'junegunn/fzf'
 Plug 'liuchengxu/vim-which-key'
+
+" Neovim Plugins
+Plug 'APZelos/blamer.nvim'
 
 call plug#end()
 
@@ -71,7 +78,6 @@ endif
 map <C-\> :NERDTreeToggle<CR>
 
 " Airline config
-let g:airline_powerline_fonts = 1
 " don't count trailing whitespace since it lags in huge files
 let g:airline#extensions#whitespace#enabled = 0
 " disable to improve fugitive performance
@@ -150,13 +156,8 @@ if executable('fzf')
 else
   " CtrlP fallback
 end
-
 " ) Default settings
 
 " Neovim settings (
-call plug#begin()
-  Plug 'APZelos/blamer.nvim'
-call plug#end()
-
 let g:blamer_enabled = 1
 " )
