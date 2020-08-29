@@ -46,6 +46,7 @@ then
 fi
 
 sudo snap install authy --beta
+sudo snap install --classic code
 
 VIM_PLUG_FILE="${HOME}/.vim/autoload/plug.vim"
 if [ ! -f "${VIM_PLUG_FILE}" ]; then
