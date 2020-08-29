@@ -57,7 +57,7 @@ if [ ! -f "${NEOVIM_PLUG_FILE}" ]; then
   echo " ==> Neovim plugins will be installed on vim startup"
 fi
 
-if [ ! -d "${HOME}/.zsh" ]; then
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   echo " ==> Installing oh-my-zsh + zsh plugins"
   git clone https://github.com/ohmyzsh/ohmyzsh.git ${HOME}/.oh-my-zsh
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
@@ -93,6 +93,9 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
   git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
   ${HOME}/.tmux/plugins/tpm/bin/install_plugins
 fi
+
+echo "Setting terminal color"
+TERMINAL=gnome-terminal bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 
 echo "Done!"
 
