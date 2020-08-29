@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export PATH=~/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  npm nvm yarn git zsh-autosuggestions docker docker-compose
+  npm nvm yarn git zsh-autosuggestions docker docker-compose docker-machine fzf node npx heroku aws gem
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,5 +115,4 @@ function change-mac() {
   echo "Your new physical address is $mac"
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -s "/Users/$USER/.jabba/jabba.sh" ] && source "/Users/$USER/.jabba/jabba.sh"
