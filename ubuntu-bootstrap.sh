@@ -98,6 +98,7 @@ if [ ! -d ~/Development/dotfiles ]; then
   git remote set-url origin git@github.com:lucaslago/dotfiles.git
 
   ln -sf $(pwd)/vimrc "${HOME}/.vimrc"
+  ln -sf $(pwd)/init.vim "${HOME}/.config/nvim/init.vim"
   ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
   ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
   ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
