@@ -44,8 +44,6 @@ let g:airline#extensions#branch#enabled = 0
 " put a buffer list at the top
 let g:airline#extensions#tabline#enabled = 1
 
-
-" Default settings {
 let mapleader = ","
 set nocompatible
 syntax enable
@@ -74,7 +72,6 @@ set t_Co=256
 
 " Save files automatically when the focus is lost.
 autocmd BufLeave,FocusLost * silent! wall
-" }
 
 " Fold settings {
 set foldenable
