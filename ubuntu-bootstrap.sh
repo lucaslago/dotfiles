@@ -1,35 +1,36 @@
 #!/bin/bash
 
+# TODO: Install coc plugins using plug
+
 set -eu
 
 sudo apt update
 sudo apt upgrade
 
 sudo apt install -y \
-	git \
-	deja-dup \
-	python3 \
-	python \
+  git \
+  deja-dup \
+  python3 \
+  python \
   nodejs \
-  yarn \
-	python3-pydrive \
-	awscli \
-	curl \
-	htop \
-	tmux \
+  python3-pydrive \
+  awscli \
+  curl \
+  htop \
+  tmux \
   vim \
   neovim \
-	tmate \
-	jq \
-	silversearcher-ag \
-	ripgrep \
-	tig \
-	unzip \
-	zip \
-	wget \
-	zsh \
-	fzf \
-	xclip \
+  tmate \
+  jq \
+  silversearcher-ag \
+  ripgrep \
+  tig \
+  unzip \
+  zip \
+  wget \
+  zsh \
+  fzf \
+  xclip \
   apt-transport-https \
   ca-certificates \
   gnupg-agent \
