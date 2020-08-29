@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# TODO:
-# Install oh my zsh plugins step
-# Install tmux plugins step
-# Install tmux oh my zsh plugin
 set -eu
 
 sudo apt update
@@ -15,6 +11,7 @@ sudo apt install -y \
 	python3 \
 	python \
   nodejs \
+  yarn \
 	python3-pydrive \
 	awscli \
 	curl \
@@ -32,10 +29,30 @@ sudo apt install -y \
 	wget \
 	zsh \
 	fzf \
-	xclip
+	xclip \
+  apt-transport-https \
+  ca-certificates \
+  gnupg-agent \
+  software-properties-common
 
-# chrome
-if ! google-chrome-stable --help &> /dev/null
+sudo snap install authy --beta
+sudo snap install --classic code
+
+if ! command docker -v &>/dev/null; then
+  echo "Installing Docker"
+  curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+  sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+  sudo apt update
+  sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
+  sudo docker run hello-world
+  sudo usermod -aG docker $USER
+fi
+
+
+if ! command google-chrome-stable --help &> /dev/null;
 then
 	wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
 	 && sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
@@ -45,8 +62,13 @@ then
 	exit
 fi
 
-sudo snap install authy --beta
-sudo snap install --classic code
+if ! command yarn --help &> /dev/null;
+then
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo apt update && sudo apt install yarn
+fi
+
 
 VIM_PLUG_FILE="${HOME}/.vim/autoload/plug.vim"
 if [ ! -f "${VIM_PLUG_FILE}" ]; then
@@ -55,7 +77,7 @@ fi
 
 NEOVIM_PLUG_FILE="${HOME}/.local/share/nvim/site/autoload/plug.vim"
 if [ ! -f "${NEOVIM_PLUG_FILE}" ]; then
-  echo " ==> Neovim plugins will be installed on vim startup"
+  echo " ==> Neovim plugins will be installed on nvim startup"
 fi
 
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
@@ -64,7 +86,6 @@ if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
   git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 fi
-
 
 echo "==> Setting shell to zsh..."
 chsh -s /usr/bin/zsh
@@ -99,4 +120,3 @@ echo "Setting terminal color"
 TERMINAL=gnome-terminal bash -c  "$(curl -sLo- https://git.io/vQgMr)"
 
 echo "Done!"
-
