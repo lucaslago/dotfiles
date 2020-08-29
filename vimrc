@@ -1,9 +1,9 @@
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-  endif
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
  set termguicolors
@@ -13,18 +13,22 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
-Plug 'rking/ag.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'othree/yajs.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'hashivim/vim-terraform'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf.vim'
+Plug 'APZelos/blamer.nvim'
+Plug 'liuchengxu/vim-which-key'
+
 
 call plug#end()
 
 " Nerd tree Config
 map <C-\> :NERDTreeToggle<CR>
-autocmd vimenter * NERDTree
 
 " Airline config
 let g:airline_powerline_fonts = 1
@@ -49,7 +53,6 @@ set background=dark
 set expandtab
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set number
-set list
 set hlsearch
 set incsearch
 set textwidth=100
@@ -68,7 +71,6 @@ set matchtime=0
 
 colorscheme gruvbox
 set t_Co=256
-set term=screen-256color
 
 " Save files automatically when the focus is lost.
 autocmd BufLeave,FocusLost * silent! wall

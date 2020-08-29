@@ -1,8 +1,9 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
@@ -15,10 +16,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'janko/vim-test'
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-commentary'
-Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'liuchengxu/vim-which-key'

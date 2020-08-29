@@ -1,0 +1,13 @@
+[user]
+	name = Lucas Lago
+	email = lucasbenderlago@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+[github]
+	user = lucaslago
+[mergetool]
+	keepBackup = true
+[push]
+	default = current
