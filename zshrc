@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/llago/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 export PATH=~/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  npm nvm yarn git
+  npm nvm yarn git zsh-autosuggestions docker docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -104,8 +104,6 @@ export NVM_DIR="$HOME/.nvm"
 export GIT_EDITOR=vim
 export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
-export AWS_SDK_LOAD_CONFIG=true
-
 
 alias delete-branches="git branch --merged | grep -Ev '(^\*|master)' | xargs git branch -d"
 
@@ -117,3 +115,5 @@ function change-mac() {
   echo "Your new physical address is $mac"
 }
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -s "/Users/$USER/.jabba/jabba.sh" ] && source "/Users/$USER/.jabba/jabba.sh"

@@ -1,24 +1,24 @@
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+
 call plug#begin()
+ set termguicolors
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-surround'
+Plug 'morhetz/gruvbox'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'valloric/youcompleteme'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
 Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
-Plug 'elmcast/elm-vim', {'for': 'elm'}
-Plug 'w0rp/ale'
-Plug 'flowtype/vim-flow'
-Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -40,37 +40,6 @@ let g:airline#extensions#branch#enabled = 0
 " put a buffer list at the top
 let g:airline#extensions#tabline#enabled = 1
 
-" ALE config
-let g:ale_fixers = {
-      \   'javascript': ['prettier', 'eslint'],
-      \   'typescript': ['eslint', 'tslint']
-      \}
-
-" Set this setting in vimrc if you want to fix files automatically on save.
-" This is off by default.
-let g:ale_fix_on_save = 1
-let g:ale_linters = {
-\  'javascript': ['flow']
-\}
-highlight clear ALEErrorSign " otherwise uses error bg color (typically red)
-highlight clear ALEWarningSign " otherwise uses error bg color (typically red)
-" %linter% is the name of the linter that provided the message
-" %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
-" Map keys to navigate between lines with errors and warnings.
-
-" vim-flow config
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
-
-nnoremap <leader>an :ALENextWrap<cr>
-nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 " Default settings {
 let mapleader = ","
@@ -82,7 +51,6 @@ set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set number
 set list
 set hlsearch
-" set colorcolumn=120
 set incsearch
 set textwidth=100
 set showmatch
