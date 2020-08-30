@@ -34,10 +34,14 @@ sudo apt install -y \
   apt-transport-https \
   ca-certificates \
   gnupg-agent \
-  software-properties-common
+  software-properties-common \
+  s-tui \
+  stress \
+  powertop \
+  tlp
 
 sudo snap install authy --beta
-sudo snap install --classic code
+sudo snap install code --classic
 
 if ! command docker -v &>/dev/null; then
   echo "Installing Docker"
