@@ -41,7 +41,7 @@ set wrap
 set linebreak
 set clipboard=unnamed
 set noshowmode
-set nolist
+set list
 set lazyredraw
 set ttyfast
 let mapleader = ","
