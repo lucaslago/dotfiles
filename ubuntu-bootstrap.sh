@@ -42,6 +42,7 @@ sudo apt install -y \
 
 sudo snap install authy --beta
 sudo snap install code --classic
+snap install spotify
 
 if ! command docker -v &>/dev/null; then
   echo "Installing Docker"
