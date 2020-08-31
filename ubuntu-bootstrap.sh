@@ -38,7 +38,8 @@ sudo apt install -y \
   s-tui \
   stress \
   powertop \
-  tlp
+  tlp \
+  firefox
 
 sudo snap install authy --beta
 sudo snap install code --classic
