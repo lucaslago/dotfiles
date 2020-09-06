@@ -39,41 +39,43 @@ sudo apt install -y \
   stress \
   powertop \
   tlp \
-  firefox
+  firefox \
+  neofetch
 
-sudo snap install authy --beta
-sudo snap install code --classic
-snap install spotify
+# Snap is not compatible with WSL2
+if ! [ -d "/run/WSL" ]; then
+  sudo snap install authy --beta
+  sudo snap install code --classic
+  snap install spotify
+fi
 
-if ! command docker -v &>/dev/null; then
+if ! command docker -v > /dev/null; then
   echo "Installing Docker"
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
   sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-  sudo apt update
-  sudo apt install docker-ce docker-ce-cli containerd.io docker-compose
-  sudo docker run hello-world
-  sudo usermod -aG docker $USER
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+      sudo apt update
+      sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose
+      sudo docker run hello-world
+      sudo usermod -aG docker $USER
 fi
 
 
-if ! command google-chrome-stable --help &> /dev/null;
-then
+if ! command google-chrome-stable --help > /dev/null; then
   wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
-  && sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
-  && sudo apt update \
-  && sudo apt install google-chrome-stable \
-  && true
-  exit
+    && sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
+    && sudo apt update \
+    && sudo apt install -y google-chrome-stable \
+    && true
+      exit
 fi
 
-if ! command yarn --help &> /dev/null;
-then
+if ! command yarn --help > /dev/null; then
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt update && sudo apt install yarn
+  sudo apt update && sudo apt install -y yarn
 fi
 
 
@@ -94,11 +96,13 @@ if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 fi
 
-echo "==> Setting shell to zsh..."
-chsh -s /usr/bin/zsh
+if ! echo $SHELL | grep "zsh" > /dev/null; then
+  echo "==> Setting shell to zsh..."
+  chsh -s /usr/bin/zsh
+fi
 
 echo "==> Creating dev directories"
-mkdir -p ~/Development 
+mkdir -p ~/Development
 
 if [ ! -d ~/Development/dotfiles ]; then
   echo "==> Setting up dotfiles"
@@ -123,7 +127,10 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
   ${HOME}/.tmux/plugins/tpm/bin/install_plugins
 fi
 
-echo "Setting terminal color"
-TERMINAL=gnome-terminal bash -c  "$(curl -sLo- https://git.io/vQgMr)"
+echo "Change terminal color? [y/N]"
+read input
+if [[ $input == "Y" || $input == "y" ]]; then
+  TERMINAL=gnome-terminal bash -c  "$(curl -sLo- https://git.io/vQgMr)"
+fi
 
 echo "Done!"
