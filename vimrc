@@ -27,11 +27,17 @@ Plug 'liuchengxu/vim-which-key'
 call plug#end()
 
 " Default settings (
-set termguicolors
 set hidden
+" Some servers have issues with backup files.
 set nobackup
 set nowritebackup
+" Give more space for displaying messages.
+set cmdheight=2
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
 set updatetime=300
+set termguicolors
+" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 set signcolumn=yes
 set relativenumber
@@ -46,40 +52,7 @@ set lazyredraw
 set ttyfast
 let mapleader = ","
 set vb t_vb=     " no visual bell & flash
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-set splitbelow
-set splitright
-" Performance improvements for mac
-if has("mac")
-  set nocursorline
-
-  if exists("+relativenumber")
-    set norelativenumber
-    set number
-  endif
-
-  set foldlevel=0
-  set foldmethod=manual
-endif
-
-
-" Nerd tree Config
-map <C-\> :NERDTreeToggle<CR>
-
-" Airline config
-let g:airline#extensions#whitespace#enabled = 0
-" disable to improve fugitive performance
-let g:airline#extensions#branch#enabled = 0
-" put a buffer list at the top
-let g:airline#extensions#tabline#enabled = 1
-
 set nocompatible
-syntax enable
 set background=dark
 set expandtab
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
@@ -91,20 +64,60 @@ set smartcase
 set ignorecase
 set autoindent
 set smartindent
-set smarttab
 set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 set matchtime=0
+set splitbelow
+set splitright
 colorscheme gruvbox
+syntax enable
 let g:airline_theme='gruvbox'
 set t_Co=256
-
+nnoremap <silent> <Leader> :WhichKey ","<CR>
+noremap <leader>b :Buffers<CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
 " Save files automatically when the focus is lost.
 autocmd BufLeave,FocusLost * silent! wall
-" }
 
-" Fold settings {
+" Performance improvements for mac (
+if has("mac")
+  set nocursorline
+
+  if exists("+relativenumber")
+    set norelativenumber
+    set number
+  endif
+
+  set foldlevel=0
+  set foldmethod=manual
+endif
+" )
+
+
+" Nerd tree Config (
+map <C-\> :NERDTreeToggle<CR>
+" )
+
+" Airline config (
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
+" disable to improve fugitive performance
+let g:airline#extensions#branch#enabled = 0
+" put a buffer list at the top
+let g:airline#extensions#tabline#enabled = 1
+" )
+
+" Fold settings (
 set foldenable
 set foldmethod=indent
 set foldnestmax=10
@@ -114,12 +127,7 @@ inoremap <F7> <C-O>za
 nnoremap <F7> za
 onoremap <F7> <C-C>za
 vnoremap <F7> zf
-" }
-
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" )
 
 com! FormatJSON %!python -m json.tool
 
@@ -149,5 +157,4 @@ if executable('fzf')
 else
   " CtrlP fallback
 end
-
 " ) Default settings
