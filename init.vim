@@ -33,6 +33,8 @@ Plug 'APZelos/blamer.nvim'
 call plug#end()
 
 " Default settings (
+" Share same clipboard across Linux, Windows and Mac OS X
+set clipboard+=unnamedplus
 set hidden
 " Some servers have issues with backup files.
 set nobackup
@@ -51,7 +53,6 @@ set textwidth=0
 set wrapmargin=0
 set wrap
 set linebreak
-set clipboard=unnamed
 set noshowmode
 set list
 set lazyredraw

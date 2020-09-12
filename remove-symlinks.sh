@@ -14,6 +14,6 @@ rm -rf ${HOME}/.oh-my-zsh
 rm -rf ${HOME}/.tmux.conf
 rm -rf ${HOME}/.gitconfig
 rm -rf ${HOME}/.tmux/plugins
-rm -rf ${HOME}/.config/coc/extensions/package.json
+rm -rf ${HOME}/.config/coc/extensions
 
 echo "Symlinks and plugin folders removed"
