@@ -81,11 +81,15 @@ fi
 
 VIM_PLUG_FILE="${HOME}/.vim/autoload/plug.vim"
 if [ ! -f "${VIM_PLUG_FILE}" ]; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   echo " ==> Vim plugins will be installed on vim startup"
 fi
 
 NEOVIM_PLUG_FILE="${HOME}/.local/share/nvim/site/autoload/plug.vim"
 if [ ! -f "${NEOVIM_PLUG_FILE}" ]; then
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   echo " ==> Neovim plugins will be installed on nvim startup"
 fi
 
