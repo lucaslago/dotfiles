@@ -13,6 +13,7 @@ sudo apt install -y \
   python3 \
   python \
   nodejs \
+  npm \
   python3-pydrive \
   awscli \
   curl \
