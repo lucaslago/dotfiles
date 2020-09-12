@@ -111,10 +111,8 @@ mkdir -p ~/Development
 
 if [ ! -d ~/Development/dotfiles ]; then
   echo "==> Setting up dotfiles"
-  # the reason we dont't copy the files individually is, to easily push changes
-  # if needed
   cd ~/Development
-  git clone --recursive https://github.com/lucaslago/dotfiles
+  git clone https://github.com/lucaslago/dotfiles
 
   cd ~/Development/dotfiles
   git remote set-url origin git@github.com:lucaslago/dotfiles.git
@@ -124,6 +122,7 @@ if [ ! -d ~/Development/dotfiles ]; then
   ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
   ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
   ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
+  mkdir -p "${HOME}/.config/coc/extensions" && ln -sf $(pwd)/coc-nvim/package.json "$HOME/.config/coc/extensions/package.json" && (cd "$HOME/.config/coc/extensions" && npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod)
 fi
 
 if [ ! -d "${HOME}/.tmux/plugins" ]; then
