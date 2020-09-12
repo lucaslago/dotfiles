@@ -50,6 +50,11 @@ if ! [ -d "/run/WSL" ]; then
   snap install spotify
 fi
 
+if [ -d "/run/WSL" ]; then
+  echo "Running WSL2 bootstrap script"
+  sh ./wsl2-bootstrap.sh
+fi
+
 if ! command docker -v > /dev/null; then
   echo "Installing Docker"
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
