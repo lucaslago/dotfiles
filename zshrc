@@ -116,3 +116,5 @@ function change-mac() {
 }
 
 [ -s "/Users/$USER/.jabba/jabba.sh" ] && source "/Users/$USER/.jabba/jabba.sh"
+
+. /usr/local/bin/z.sh

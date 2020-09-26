@@ -43,20 +43,27 @@ sudo apt install -y \
   firefox \
   neofetch
 
+
 # Snap is not compatible with WSL2
-if ! [ -d "/run/WSL" ]; then
+if command snap > /dev/null 2>&1; then
   sudo snap install authy --beta
   sudo snap install code --classic
   snap install spotify
 fi
 
 if [ -d "/run/WSL" ]; then
-  echo "Running WSL2 bootstrap script"
+  echo "==> running WSL2 bootstrap script"
   sh ./wsl2-bootstrap.sh
 fi
 
+if ! command z > /dev/null 2>&1; then
+  echo "==> Installing z"
+  git clone https://github.com/rupa/z.git
+  sudo cp ./z/z.sh /usr/local/bin && rm -rf ./z
+fi
+
 if ! command docker -v > /dev/null; then
-  echo "Installing Docker"
+  echo "==> Installing Docker"
   curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
   sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -70,6 +77,7 @@ fi
 
 
 if ! command google-chrome-stable --help > /dev/null; then
+  echo "Installing chrome"
   wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - \
     && sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' \
     && sudo apt update \
@@ -79,6 +87,7 @@ if ! command google-chrome-stable --help > /dev/null; then
 fi
 
 if ! command yarn --help > /dev/null; then
+  echo "Installing yarn"
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo apt update && sudo apt install -y yarn
@@ -87,6 +96,7 @@ fi
 
 VIM_PLUG_FILE="${HOME}/.vim/autoload/plug.vim"
 if [ ! -f "${VIM_PLUG_FILE}" ]; then
+  echo "==> Installing vim plug"
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   echo " ==> Vim plugins will be installed on vim startup"
@@ -94,13 +104,14 @@ fi
 
 NEOVIM_PLUG_FILE="${HOME}/.local/share/nvim/site/autoload/plug.vim"
 if [ ! -f "${NEOVIM_PLUG_FILE}" ]; then
+  echo "==> Installing neovim plug"
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  echo " ==> Neovim plugins will be installed on nvim startup"
+  echo "==> Neovim plugins will be installed on nvim startup"
 fi
 
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
-  echo " ==> Installing oh-my-zsh + zsh plugins"
+  echo "==> Installing oh-my-zsh + zsh plugins"
   git clone https://github.com/ohmyzsh/ohmyzsh.git ${HOME}/.oh-my-zsh
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${HOME}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
   git clone https://github.com/zsh-users/zsh-autosuggestions "${HOME}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
