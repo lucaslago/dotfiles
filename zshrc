@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  npm nvm yarn git zsh-autosuggestions docker docker-compose docker-machine fzf node npx heroku aws gem zsh-syntax-highlighting tmux
+  npm yarn git zsh-autosuggestions docker docker-compose docker-machine fzf node heroku aws gem zsh-syntax-highlighting tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,9 +98,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export GIT_EDITOR=vim
 export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
@@ -115,6 +112,6 @@ function change-mac() {
   echo "Your new physical address is $mac"
 }
 
-[ -s "/Users/$USER/.jabba/jabba.sh" ] && source "/Users/$USER/.jabba/jabba.sh"
-
 . /usr/local/bin/z.sh
+
+eval "$(fnm env)"

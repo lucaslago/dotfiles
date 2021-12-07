@@ -6,12 +6,8 @@
     "coc-eslint": "*",
     "coc-explorer": "*",
     "coc-html": "*",
-    "coc-import-cost": "*",
     "coc-json": "*",
     "coc-prettier": "*",
-    "coc-snippets": "*",
-    "coc-tslint": "*",
-    "coc-tslint-plugin": "*",
     "coc-tsserver": "*",
     "coc-yaml": "*"
   }

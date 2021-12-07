@@ -11,18 +11,21 @@ call plug#begin(stdpath('config').'/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" TODO: make this work Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'morhetz/gruvbox'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'morhetz/gruvbox'
+Plug 'Yggdroot/indentLine'
 " FZF vim integrations
 Plug 'junegunn/fzf'
 Plug 'liuchengxu/vim-which-key'

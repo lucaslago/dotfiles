@@ -11,3 +11,5 @@
 	keepBackup = true
 [push]
 	default = current
+[pull]
+	rebase = false
