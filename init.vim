@@ -8,10 +8,6 @@ unlet autoload_plug_path
 
 " Use neovim config path abstraction
 call plug#begin(stdpath('config').'/plugged')
-
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
@@ -33,6 +29,8 @@ Plug 'othree/yajs.vim'
 " Neovim Plugins
 Plug 'APZelos/blamer.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
 call plug#end()
 
 " Default settings (
@@ -117,10 +115,6 @@ endif
 " )
 
 
-" Nerd tree Config (
-map <C-\> :NERDTreeToggle<CR>
-" )
-
 " Airline config (
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
@@ -175,6 +169,12 @@ end
 
 " Neovim settings (
 let g:blamer_enabled = 1
+" nvimtree config
+let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
 
 " Recommended coc.nvim configuration (
 " Use tab for trigger completion with characters ahead and navigate.
@@ -289,3 +289,14 @@ nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 
   " )
 " )
+"
+"
+"
+" =========================================
+"               lua config
+" =========================================
+
+lua << EOF
+require'nvim-web-devicons'.setup()
+require'nvim-tree'.setup()
+EOF
