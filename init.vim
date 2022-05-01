@@ -12,7 +12,6 @@ call plug#begin(stdpath('config').'/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" TODO: make this work Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
@@ -29,10 +28,11 @@ Plug 'Yggdroot/indentLine'
 " FZF vim integrations
 Plug 'junegunn/fzf'
 Plug 'liuchengxu/vim-which-key'
+Plug 'othree/yajs.vim'
 
 " Neovim Plugins
 Plug 'APZelos/blamer.nvim'
-
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 " Default settings (
