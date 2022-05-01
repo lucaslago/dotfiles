@@ -81,6 +81,8 @@ set backspace=indent,eol,start
 set matchtime=0
 set splitbelow
 set splitright
+set scrolloff=8
+set signcolumn=yes
 colorscheme gruvbox
 syntax enable
 let g:airline_theme='gruvbox'
