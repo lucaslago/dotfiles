@@ -62,6 +62,7 @@ set lazyredraw
 set ttyfast
 let mapleader = ","
 set vb t_vb=     " no visual bell & flash
+set noerrorbells
 set nocompatible
 set background=dark
 set expandtab
