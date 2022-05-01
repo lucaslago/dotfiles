@@ -47,7 +47,7 @@ echo "==> Setting up dotfiles"
 git remote set-url origin git@github.com:lucaslago/dotfiles.git
 
 ln -sf $(pwd)/vimrc "${HOME}/.vimrc"
-mkdir -p "${HOME}/.config/nvim" && ln -sf $(pwd)/init.vim "${HOME}/.config/nvim/init.vim"
+mkdir -p "${HOME}/.config/nvim" && ln -sf $(pwd)/init.vim "${HOME}/.config/nvim/init.vim" && ln -sf $(pwd)/coc-settings.json "${HOME}/.config/nvim/coc-settings.json"
 ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
 ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
 ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"

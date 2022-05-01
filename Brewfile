@@ -16,6 +16,7 @@ brew "zsh"
 brew "fzf"
 brew "yarn"
 brew "fnm"
+brew "hashicorp/tap/terraform-ls"
 
 cask "docker"
 cask "rectangle"
