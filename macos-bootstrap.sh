@@ -59,10 +59,7 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
   ${HOME}/.tmux/plugins/tpm/bin/install_plugins
 fi
 
-echo "Change terminal color? [y/N]"
-read input
-if [[ $input == "Y" || $input == "y" ]]; then
-  TERMINAL=gnome-terminal bash -c  "$(curl -sLo- https://git.io/vQgMr)"
-fi
+echo "Changing terminal color to gruvbox-dark"
+bash ./gruvbox-dark.sh
 
 echo "Done!"
