@@ -15,6 +15,7 @@ brew "zsh"
 brew "fzf"
 brew "yarn"
 brew "fnm"
+brew "node"
 
 cask "stats"
 cask "docker"
