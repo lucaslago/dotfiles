@@ -16,6 +16,7 @@ brew "fzf"
 brew "yarn"
 brew "fnm"
 brew "node"
+brew "the_silver_searcher"
 
 cask "stats"
 cask "docker"
