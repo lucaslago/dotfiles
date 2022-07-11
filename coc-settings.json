@@ -1,21 +1,30 @@
 {
   "suggest.autoTrigger": "always",
-    "coc.preferences.extensionUpdateCheck": "daily",
-    "languageserver": {
-        "terraform": {
-            "command": "terraform-ls",
-            "filetypes": [
-                "terraform"
-            ],
-            "initializationOptions": {}
-        },
-        "graphql": {
-          "command": "graphql-lsp",
-          "args": ["server", "-m", "stream"],
-          "filetypes": ["typescript", "typescriptreact", "graphql"]
-        }
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
     },
-    "tsserver.npm": "/usr/local/bin/npm",
-    "tsserver.log": "normal",
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "css", "markdown", "reacttypescript", "typescriptreact", "jsx"]
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["typescript", "typescriptreact", "graphql"],
+      "settings": {
+        "graphql-config.load.legacy": true
+      }
+    }
+  },
+  "tsserver.npm": "/usr/local/bin/npm",
+  "tsserver.log": "normal",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "css",
+    "markdown",
+    "reacttypescript",
+    "typescriptreact",
+    "jsx"
+  ]
 }
