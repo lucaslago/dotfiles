@@ -19,6 +19,7 @@ brew "node"
 brew "the_silver_searcher"
 brew "rust"
 brew "hashicorp/tap/terraform-ls"
+brew "tmate"
 
 cask "stats"
 cask "docker"
