@@ -102,7 +102,7 @@ fi
 export GIT_EDITOR=nvim
 export PATH=~/.local/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
-
+export BAT_THEME="gruvbox-dark"
 alias delete-branches="git branch --merged | grep -Ev '(^\*|master)' | xargs git branch -d"
 
 function change-mac() {

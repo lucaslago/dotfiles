@@ -20,6 +20,7 @@ brew "the_silver_searcher"
 brew "rust"
 brew "hashicorp/tap/terraform-ls"
 brew "tmate"
+brew "bat"
 
 cask "stats"
 cask "docker"
