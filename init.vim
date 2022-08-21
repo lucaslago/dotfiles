@@ -31,6 +31,7 @@ Plug 'APZelos/blamer.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'github/copilot.vim'
 call plug#end()
 
 " Default settings (
