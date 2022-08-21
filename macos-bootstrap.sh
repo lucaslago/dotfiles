@@ -2,7 +2,7 @@
 
 set -eu
 
-if ! [ -x "$(command -v z)" ]; then
+if [[ ! -e /usr/local/bin/z.sh ]]; then
   echo "==> Installing z"
   git clone https://github.com/rupa/z.git
   sudo cp ./z/z.sh /usr/local/bin && rm -rf ./z
@@ -40,18 +40,18 @@ echo "==> Creating dev directories"
 mkdir -p ~/Development
 
 echo "==> Setting up dotfiles"
-#  cd ~/Development
-#  git clone https://github.com/lucaslago/dotfiles
-
-#  cd ~/Development/dotfiles
 git remote set-url origin git@github.com:lucaslago/dotfiles.git
 
 ln -sf $(pwd)/vimrc "${HOME}/.vimrc"
 mkdir -p "${HOME}/.config/nvim" && ln -sf $(pwd)/init.vim "${HOME}/.config/nvim/init.vim" && ln -sf $(pwd)/coc-settings.json "${HOME}/.config/nvim/coc-settings.json"
 ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
 ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
+ln -sf $(pwd)/tmate.conf "${HOME}/.tmate.conf"
 ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
-mkdir -p "${HOME}/.config/coc/extensions" && ln -sf $(pwd)/coc-nvim/package.json "$HOME/.config/coc/extensions/package.json" && (cd "$HOME/.config/coc/extensions" && npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod)
+
+if [ ! -d "${HOME}/.config/coc" ]; then
+  mkdir -p "${HOME}/.config/coc/extensions" && ln -sf $(pwd)/coc-nvim/package.json "$HOME/.config/coc/extensions/package.json" && (cd "$HOME/.config/coc/extensions" && npm install --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod)
+fi
 
 if [ ! -d "${HOME}/.tmux/plugins" ]; then
   echo " ==> Installing tmux plugins"
@@ -59,7 +59,12 @@ if [ ! -d "${HOME}/.tmux/plugins" ]; then
   ${HOME}/.tmux/plugins/tpm/bin/install_plugins
 fi
 
-echo "Changing terminal color to gruvbox-dark"
-bash ./gruvbox-dark.sh
+
+if ! command -v graphql-lsp > /dev/null; then
+  echo "==> Installing graphql-lsp"
+  npm install --global graphql-language-service-cli
+fi
+
+echo "Change terminal color to gruvbox-dark by running 'bash ./gruvbox-dark.sh'"
 
 echo "Done!"

@@ -290,14 +290,15 @@ nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 
   " )
 " )
-"
-"
-"
 " =========================================
 "               lua config
 " =========================================
 
 lua << EOF
 require'nvim-web-devicons'.setup()
-require'nvim-tree'.setup()
+require'nvim-tree'.setup({
+  view = {
+    width = 80
+  }
+})
 EOF
