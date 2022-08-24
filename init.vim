@@ -25,6 +25,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf'
 Plug 'liuchengxu/vim-which-key'
 Plug 'othree/yajs.vim'
+Plug 'tpope/vim-fugitive'
 
 " Neovim Plugins
 Plug 'APZelos/blamer.nvim'
