@@ -45,6 +45,7 @@ set termguicolors
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 set relativenumber
+set number
 set textwidth=0
 set wrapmargin=0
 set wrap
@@ -99,10 +100,10 @@ autocmd BufLeave,FocusLost * silent! wall
 if has("mac")
   set nocursorline
 
-  if exists("+relativenumber")
-    set norelativenumber
-    set number
-  endif
+  " if exists("+relativenumber")
+  "   set norelativenumber
+  "   set number
+  " endif
 
   set foldlevel=0
   set foldmethod=manual

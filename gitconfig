@@ -1,6 +1,6 @@
 [user]
 	name = Lucas Lago
-	email = lucasbenderlago@gmail.com
+	email = llago@atlassian.com
 [color]
 	ui = auto
 [core]
@@ -13,3 +13,8 @@
 	default = current
 [pull]
 	rebase = false
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
