@@ -44,7 +44,6 @@ set cmdheight=2
 set termguicolors
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-set relativenumber
 set number
 set textwidth=0
 set wrapmargin=0
@@ -94,7 +93,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 " Save files automatically when the focus is lost.
-autocmd BufLeave,FocusLost * silent! wall
+" autocmd BufLeave,FocusLost * silent! wall
 
 " Performance improvements for mac (
 if has("mac")

@@ -19,14 +19,8 @@
     }
   },
   "tsserver.npm": "/usr/local/bin/npm",
-  "tsserver.log": "normal",
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "css",
-    "markdown",
-    "reacttypescript",
-    "typescriptreact",
-    "jsx"
-  ]
+  "tsserver.log": "verbose",
+  "tsserver.maxTsServerMemory": 16384,
+  "tsserver.trace.server": "verbose",
+  "coc.preferences.formatOnSave": true
 }
