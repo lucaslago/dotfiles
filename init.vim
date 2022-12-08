@@ -164,8 +164,6 @@ end
 
 " Neovim settings (
 let g:blamer_enabled = 1
-" nvimtree config
-let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
@@ -336,6 +334,9 @@ require'nvim-web-devicons'.setup()
 require'nvim-tree'.setup({
   view = {
     width = 80
+  },
+  renderer = {
+    highlight_git = true
   }
 })
 EOF
