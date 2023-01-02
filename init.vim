@@ -92,8 +92,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-" Save files automatically when the focus is lost.
-" autocmd BufLeave,FocusLost * silent! wall
 
 " Performance improvements for mac (
 if has("mac")
@@ -172,8 +170,8 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " Recommended coc.nvim configuration (
 " Some servers have issues with backup files, see #649.
 set hlsearch
-autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#1d2021
-doautocmd ColorScheme
+" autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#1d2021
+" doautocmd ColorScheme
 set nobackup
 set nowritebackup
 
@@ -246,11 +244,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
+  " autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
