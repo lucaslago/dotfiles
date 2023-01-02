@@ -12,27 +12,36 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+    -- Plugin manager
     use 'wbthomason/packer.nvim'
+    -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-
+    -- Theme
     use { "ellisonleao/gruvbox.nvim" }
+    -- File explorer
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
     }
+    -- Icons
     use('kyazdani42/nvim-web-devicons')
-
+    -- Highlighting
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    -- AST debugger
     use('nvim-treesitter/playground')
+    -- File navigation "favorites"
     use('ThePrimeagen/harpoon')
+    -- Undo history
     use('mbbill/undotree')
+    -- Git support
     use('tpope/vim-fugitive')
+    -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -54,7 +63,7 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
         }
     }
-    -- status line
+    -- Status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
