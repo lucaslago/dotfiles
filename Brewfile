@@ -21,6 +21,7 @@ brew "rust"
 brew "hashicorp/tap/terraform-ls"
 brew "tmate"
 brew "bat"
+brew "fd"
 
 cask "stats"
 cask "docker"
