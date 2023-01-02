@@ -8,8 +8,9 @@
     "coc-explorer": "*",
     "coc-html": "*",
     "coc-json": "*",
-    "coc-prettier": "*",
     "coc-tsserver": "*",
-    "coc-yaml": "*"
-  }
+    "coc-yaml": "*",
+    "coc-prettier": ">=9.3.1"
+  },
+  "lastUpdate": 1672644168821
 }
