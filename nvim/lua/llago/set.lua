@@ -22,7 +22,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.cmdheight = 2
 vim.opt.hidden = true
