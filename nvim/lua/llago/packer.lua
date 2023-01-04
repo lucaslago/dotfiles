@@ -73,11 +73,11 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  -- Comment
+  -- Language agnostic comments
   use('tpope/vim-commentary')
 
-  -- Ag
-  use({ "kelly-lin/telescope-ag", requires = { { "nvim-telescope/telescope.nvim" } } })
+  -- Auto insertion of closing tags
+  use('Raimondi/delimitMate')
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
