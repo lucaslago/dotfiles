@@ -30,6 +30,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
+local cmp_sources = lsp.defaults.cmp_sources()
+table.insert(cmp_sources, { name = 'nvim_lsp_signature_help' })
 
 -- disable completion with tab
 -- this helps with copilot setup
@@ -37,7 +39,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 -- cmp_mappings['<S-Tab>'] = nil
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  sources = cmp_sources
 })
 
 lsp.set_preferences({
