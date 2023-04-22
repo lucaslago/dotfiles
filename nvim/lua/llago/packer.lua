@@ -83,6 +83,14 @@ return require('packer').startup(function(use)
   -- Keybinding previews on popup
   use('folke/which-key.nvim')
 
+  -- Debugger client
+  use 'mfussenegger/nvim-dap'
+
+  -- Pomodoro
+  use {
+    'wthollingsworth/pomodoro.nvim',
+    requires = 'MunifTanjim/nui.nvim'
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
