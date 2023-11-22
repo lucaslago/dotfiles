@@ -37,7 +37,7 @@ ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
 ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
 ln -sf $(pwd)/tmate.conf "${HOME}/.tmate.conf"
 ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
-ln -s "$(pwd)/nvim" "${HOME}/.config/nvim"
+ln -sf "$(pwd)/nvim" "${HOME}/.config/nvim"
 
 mkdir -p "${HOME}/.config/coc/extensions"
 

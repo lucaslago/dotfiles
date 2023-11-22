@@ -59,15 +59,16 @@ return require('packer').startup(function(use)
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lua' },
+
       -- Help signatures for function parameters in insert
       {'hrsh7th/cmp-nvim-lsp-signature-help'},
 
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
-
     }
   }
+
   -- Status line
   use {
     'nvim-lualine/lualine.nvim',

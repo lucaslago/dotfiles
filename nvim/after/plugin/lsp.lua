@@ -36,8 +36,10 @@ table.insert(cmp_sources, { name = 'nvim_lsp_signature_help' })
 
 -- disable completion with tab
 -- this helps with copilot setup
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-L>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,

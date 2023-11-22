@@ -23,6 +23,8 @@ brew "tmate"
 brew "bat"
 brew "fd"
 brew "tree"
+brew "fsouza/prettierd/prettierd"
+brew "bruno"
 
 cask "stats"
 cask "docker"
