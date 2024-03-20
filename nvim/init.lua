@@ -1,1 +1,1 @@
-require("./llago")
+require("llago")

@@ -1,5 +1,5 @@
 require('lualine').setup({
-  theme = 'gruvbox',
+  theme = 'gruvbox_dark',
   sections = {
     lualine_c = { 'filename', require('pomodoro').statusline }
   }
