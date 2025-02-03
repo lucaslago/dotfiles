@@ -9,44 +9,43 @@ local ensure_packer = function()
   return false
 end
 
-if vim.g.vscode == nil then
-  -- File explorer
-  local packer_bootstrap = ensure_packer()
+-- File explorer
+local packer_bootstrap = ensure_packer()
 
-  return require('packer').startup(function(use)
-    -- Plugin manager
-    use 'wbthomason/packer.nvim'
-    -- Fuzzy finder
-    use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.6',
-      requires = {
-        { 'nvim-lua/plenary.nvim' },
-        { 'nvim-telescope/telescope-fzf-native.nvim',
+return require('packer').startup(function(use)
+  -- Plugin manager
+  use 'wbthomason/packer.nvim'
+  -- Fuzzy finder
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make' }
-      }
     }
-    -- Theme
-    use { "ellisonleao/gruvbox.nvim" }
-    use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons', -- optional, for file icons
-      },
-    }
-    -- Icons
-    -- use('kyazdani42/nvim-web-devicons')
-    -- Highlighting
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    -- AST debugger
-    use('nvim-treesitter/playground')
-    -- File navigation "favorites"
-    use('ThePrimeagen/harpoon')
-    -- Undo history
-    use('mbbill/undotree')
-    -- Git support
-    use('tpope/vim-fugitive')
-    -- LSP
-    use { 'VonHeikemen/lsp-zero.nvim',
+  }
+  -- Theme
+  use { "ellisonleao/gruvbox.nvim" }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+  -- Icons
+  -- use('kyazdani42/nvim-web-devicons')
+  -- Highlighting
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  -- AST debugger
+  use('nvim-treesitter/playground')
+  -- File navigation "favorites"
+  use('ThePrimeagen/harpoon')
+  -- Undo history
+  use('mbbill/undotree')
+  -- Git support
+  use('tpope/vim-fugitive')
+  -- LSP
+  use { 'VonHeikemen/lsp-zero.nvim',
     requires = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
@@ -62,7 +61,7 @@ if vim.g.vscode == nil then
       { 'hrsh7th/cmp-nvim-lua' },
 
       -- Help signatures for function parameters in insert
-      {'hrsh7th/cmp-nvim-lsp-signature-help'},
+      { 'hrsh7th/cmp-nvim-lsp-signature-help' },
 
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
@@ -100,10 +99,34 @@ if vim.g.vscode == nil then
 
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
+
+  -- yarn pnp support https://yarnpkg.com/getting-started/editor-sdks
+  use('lbrayner/vim-rzip')
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
+
+  -- Formatter
+  use({
+    "stevearc/conform.nvim",
+    config = function()
+      require("conform").setup()
+    end,
+  })
+
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    after = "nvim-web-devicons",     -- keep this if you're using NvChad
+    config = function()
+      require("barbecue").setup()
+    end,
+  })
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-end

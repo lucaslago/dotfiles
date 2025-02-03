@@ -38,6 +38,7 @@ ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
 ln -sf $(pwd)/tmate.conf "${HOME}/.tmate.conf"
 ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
 ln -sf "$(pwd)/nvim" "${HOME}/.config/nvim"
+ln -sf $(pwd)/ghostty "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
 
 mkdir -p "${HOME}/.config/coc/extensions"
 
