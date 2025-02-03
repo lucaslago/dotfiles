@@ -13,10 +13,17 @@
 	default = current
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
 [filter "lfs"]
-	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[init]
-	defaultBranch = main
+	required = true
+[trace2]
+	eventTarget = af_unix:/Users/llago/atlassian/.canvas/telemetry/git-tracing.sock
+	eventBrief = true
+	eventNesting = 1
+	configparams = custom.metacommands
+[maintenance]
+	repo = /Users/llago/Development/atlassian/atlassian-frontend-monorepo

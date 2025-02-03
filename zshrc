@@ -11,6 +11,7 @@ export PATH=~/.cargo/bin:$PATH
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=11'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -65,7 +66,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  npm yarn git zsh-autosuggestions docker docker-compose docker-machine fzf node heroku aws gem zsh-syntax-highlighting tmux
+  npm yarn git zsh-autosuggestions docker docker-compose fzf node heroku aws gem zsh-syntax-highlighting tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,3 +117,21 @@ function change-mac() {
 . /usr/local/bin/z.sh
 
 eval "$(fnm env)"
+
+source ~/.afm-git-configrc
+
+export PATH="/Users/llago/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load pyenv automatically by appending
+# the following to
+# ~/.zprofile (for login shells)
+# and ~/.zshrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
