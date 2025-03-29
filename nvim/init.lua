@@ -1,7 +1,9 @@
 if vim.g.vscode then
-	-- VSCode Neovim specific stuff
-	print("nvim-vscode config")
-	require("llago-vscode")
+  print("nvim-vscode config")
+  require("llago-vscode")
+  -- TODO: add vscode specific config
+  -- require("llago")
 else
-	require("llago")
+  print("nvim config")
+  require("llago")
 end
