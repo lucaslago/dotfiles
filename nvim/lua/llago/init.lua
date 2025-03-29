@@ -1,5 +1,2 @@
-print("nvim config")
-require("llago.remap")
-require("llago.packer")
-require("llago.set")
-require("llago.autocmd")
+require('llago.config')
+require('llago.lazy')

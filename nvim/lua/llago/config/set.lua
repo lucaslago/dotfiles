@@ -1,11 +1,4 @@
 vim.opt.nu = true
---vim.opt.relativenumber = true
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
@@ -31,13 +24,15 @@ vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.lazyredraw = true
 vim.opt.ruler = true
+
 -- No bells
 vim.opt.visualbell = false
 vim.opt.errorbells = false
+
 -- Tab
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
-vim.opt.softtabstop = 0
+vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 vim.opt.showmatch = true
@@ -48,7 +43,6 @@ vim.opt.ignorecase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.matchtime = 0
-
 
 -- Indentation
 vim.opt.autoindent = true
