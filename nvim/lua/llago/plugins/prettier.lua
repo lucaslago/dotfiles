@@ -1,5 +1,6 @@
 return { {
   "MunifTanjim/prettier.nvim",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   config = function()
     local prettier = require("prettier")
 

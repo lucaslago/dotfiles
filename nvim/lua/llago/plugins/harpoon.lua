@@ -1,5 +1,6 @@
 return { {
   "ThePrimeagen/harpoon",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local mark = require('harpoon.mark')

@@ -1,2 +1,1 @@
-require('llago-vscode.remap')
-require('llago-vscode.set')
+require('llago-vscode.config')
