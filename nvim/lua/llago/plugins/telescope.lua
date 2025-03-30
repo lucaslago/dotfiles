@@ -1,5 +1,6 @@
 return { {
   "nvim-telescope/telescope.nvim",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   tag = "0.1.6",
   dependencies = { "nvim-lua/plenary.nvim", {
     "nvim-telescope/telescope-fzf-native.nvim",

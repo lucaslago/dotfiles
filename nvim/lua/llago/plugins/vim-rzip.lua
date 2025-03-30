@@ -1,2 +1,2 @@
-return { { "lbrayner/vim-rzip" -- yarn pnp support
-} }
+-- yarn pnp support
+return { "lbrayner/vim-rzip" }

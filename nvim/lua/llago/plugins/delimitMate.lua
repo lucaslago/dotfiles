@@ -1,1 +1,1 @@
-return { { "Raimondi/delimitMate" } }
+return { "Raimondi/delimitMate" }

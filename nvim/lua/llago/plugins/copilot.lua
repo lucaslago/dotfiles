@@ -1,5 +1,6 @@
 return { {
   "github/copilot.vim",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   config = function()
     -- Configure Copilot
     vim.g.copilot_no_tab_map = true

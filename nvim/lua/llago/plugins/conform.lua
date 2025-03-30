@@ -1,5 +1,6 @@
 return { {
   "stevearc/conform.nvim",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   config = function()
     require("conform").setup({
       formatters = {

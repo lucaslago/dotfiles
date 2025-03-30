@@ -1,5 +1,6 @@
 return { {
   "utilyre/barbecue.nvim",
+  cond = not vim.g.vscode,                                              -- Only enable when not in VS Code
   tag = "*",
   dependencies = { "SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons" -- optional dependency
   },

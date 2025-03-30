@@ -1,5 +1,6 @@
 return { {
   "jose-elias-alvarez/null-ls.nvim",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local null_ls = require("null-ls")

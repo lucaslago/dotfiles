@@ -1,1 +1,1 @@
-return { { "nvim-treesitter/playground" } }
+return { "nvim-treesitter/playground" }

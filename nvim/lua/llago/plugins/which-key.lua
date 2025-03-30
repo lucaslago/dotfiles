@@ -1,5 +1,6 @@
-return { {
+return {
   "folke/which-key.nvim",
+  cond = not vim.g.vscode, -- Only enable when not in VS Code
   config = function()
     require("which-key").setup {
       -- your configuration comes here
@@ -7,4 +8,4 @@ return { {
       -- refer to the configuration section below
     }
   end
-} }
+}
