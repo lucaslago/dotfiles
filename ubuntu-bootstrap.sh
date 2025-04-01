@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: Install coc plugins using plug
-
 set -eu
 
 sudo apt update
