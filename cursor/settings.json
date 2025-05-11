@@ -49,5 +49,6 @@
     "n"
   ],
   "jestrunner.runInExternalNativeTerminal": true,
-  "terminal.external.osxExec": "/Applications/Ghostty.app"
+  "terminal.external.osxExec": "/Applications/Ghostty.app",
+  "workbench.editor.showTabs": "single"
 }
