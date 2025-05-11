@@ -8,13 +8,6 @@ if [[ ! -e /usr/local/bin/z.sh ]]; then
   sudo cp ./z/z.sh /usr/local/bin && rm -rf ./z
 fi
 
-PACKER_DIST="${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
-if [ ! -d "${PACKER_DIST}" ]; then
-  echo "==> Installing Packer"
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   echo "==> Installing oh-my-zsh + zsh plugins"
   git clone https://github.com/ohmyzsh/ohmyzsh.git ${HOME}/.oh-my-zsh
@@ -37,11 +30,11 @@ ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
 ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
 ln -sf $(pwd)/tmate.conf "${HOME}/.tmate.conf"
 ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
-ln -sf "$(pwd)/nvim" "${HOME}/.config/nvim"
+ln -sf "$(pwd)/nvim/*" "${HOME}/.config/nvim/"
 ln -sf $(pwd)/ghostty "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
-ln -sf $(pwd)/nvim/lazy-lock.json "${HOME}/.config/nvim/lazy-lock.json"
-
-mkdir -p "${HOME}/.config/coc/extensions"
+ln -sf $(pwd)/lazy-lock.json "${HOME}/.config/nvim/lazy-lock.json"
+ln -sf $(pwd)/cursor/settings.json "${HOME}/Library/Application Support/Cursor/User/settings.json"
+ln -sf $(pwd)/cursor/keybindings.json "${HOME}/Library/Application Support/Cursor/User/keybindings.json"
 
 if [ ! -d "${HOME}/.tmux/plugins" ]; then
   echo " ==> Installing tmux plugins"

@@ -48,5 +48,6 @@
     "delete",
     "n"
   ],
-  "jestrunner.runInExternalNativeTerminal": true
+  "jestrunner.runInExternalNativeTerminal": true,
+  "terminal.external.osxExec": "/Applications/Ghostty.app"
 }
