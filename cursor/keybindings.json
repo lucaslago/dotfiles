@@ -1,2 +1,22 @@
 // Place your key bindings in this file to override the defaults
-[]
+[
+  {
+    "key": "ctrl+6",
+    "command": "-workbench.action.openEditorAtIndex6"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "composer.selectNextComposer",
+    "when": "view =~ /^workbench.panel.aichat.view/"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+    "when": "!activeEditorGroupEmpty"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+    "when": "inEditorsPicker && inQuickOpen"
+  }
+]

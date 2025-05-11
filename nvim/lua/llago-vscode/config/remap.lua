@@ -41,7 +41,6 @@ keymap({ "n", "v" }, "<leader>cp", "<cmd>lua require('vscode').action('workbench
 keymap({ "n", "v" }, "<leader>pr", "<cmd>lua require('vscode').action('code-runner.run')<CR>")
 keymap({ "n", "v" }, "<leader>fd", "<cmd>lua require('vscode').action('editor.action.formatDocument')<CR>")
 keymap({ "n", "v" }, "<C-n>", "<cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
-keymap({ "n", "v" }, "<C-6>", "<cmd>lua require('vscode').action('workbench.action.openPreviousRecentlyUsedEditor')<CR>")
 
 -- harpoon keymaps
 keymap({ "n", "v" }, "<leader>ha", "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>")
