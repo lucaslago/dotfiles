@@ -33,7 +33,11 @@ ln -sf $(pwd)/gitconfig "${HOME}/.gitconfig"
 ln -sf "$(pwd)/nvim/*" "${HOME}/.config/nvim/"
 ln -sf $(pwd)/ghostty "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
 ln -sf $(pwd)/lazy-lock.json "${HOME}/.config/nvim/lazy-lock.json"
-ln -sf $(pwd)/cursor/profiles/24032f14/* "${HOME}/Library/Application Support/Cursor/User/profiles/24032f14"
+ln -sf $(pwd)/cursor/settings.json "${HOME}/Library/Application Support/Cursor/User/settings.json"
+ln -sf $(pwd)/cursor/keybindings.json "${HOME}/Library/Application Support/Cursor/User/keybindings.json"
+# I should use the default profile and ignore profiles altogether, as this messed up the directory and the above symlinks break
+# mkdir -p "${HOME}/Library/Application Support/Cursor/User/profiles/24032f14"
+# ln -sf $(pwd)/cursor/profiles/24032f14/* "${HOME}/Library/Application Support/Cursor/User/profiles/24032f14/"
 
 if [ ! -d "${HOME}/.tmux/plugins" ]; then
   echo " ==> Installing tmux plugins"
