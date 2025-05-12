@@ -54,7 +54,8 @@ keymap({ "n", "v" }, "<leader>h5", "<cmd>lua require('vscode').action('vscode-ha
 keymap({ "n", "v" }, "<leader>h6", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor6')<CR>")
 keymap({ "n", "v" }, "<leader>h7", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor7')<CR>")
 keymap({ "n", "v" }, "<leader>h8", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor8')<CR>")
-keymap({ "n", "v" }, "<leader>h9", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor9')<CR>")
+keymap({ "n", "v" }, "<leader>v", "<cmd>lua require('vscode').action('workbench.action.splitEditorRight')<CR>")
+keymap({ "n", "v" }, "<leader>x", "<cmd>lua require('vscode').action('workbench.action.splitEditorDown')<CR>")
 
 -- project manager keymaps
 keymap({ "n", "v" }, "<leader>pa", "<cmd>lua require('vscode').action('projectManager.saveProject')<CR>")
