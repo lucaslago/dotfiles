@@ -64,6 +64,7 @@ keymap({ "n", "v" }, "<leader>pe", "<cmd>lua require('vscode').action('projectMa
 
 -- LSP keymaps
 keymap({ "n", "v" }, "gr", "<cmd>lua require('vscode').action('editor.action.goToReferences')<CR>")
+keymap({ "n", "v" }, "gi", "<cmd>lua require('vscode').action('editor.action.goToImplementation')<CR>")
 keymap({ "n", "v" }, "<leader>n",
   "<cmd>lua require('vscode').action('workbench.files.action.showActiveFileInExplorer')<CR>")
 keymap({ "n", "v" }, "<leader>ca", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>")

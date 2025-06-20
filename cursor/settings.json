@@ -50,7 +50,6 @@
   ],
   "jestrunner.runInExternalNativeTerminal": true,
   "terminal.external.osxExec": "/Applications/Ghostty.app",
-  "workbench.editor.showTabs": "single",
   "snyk.advanced.cliPath": "/Users/llago/Library/Application Support/snyk/vscode-cli/snyk-macos-arm64",
   "snyk.folderConfigs": [
     {
@@ -926,5 +925,6 @@
       ]
     }
   ],
-  "editor.semanticHighlighting.enabled": true
+  "editor.semanticHighlighting.enabled": true,
+  "git.openRepositoryInParentFolders": "never"
 }
