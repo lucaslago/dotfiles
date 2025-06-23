@@ -26,6 +26,7 @@ mkdir -p ~/Development
 echo "==> Setting up dotfiles"
 git remote set-url origin git@github.com:lucaslago/dotfiles.git
 
+echo "==> Setting up symlinks"
 ln -sf $(pwd)/zshrc "${HOME}/.zshrc"
 ln -sf $(pwd)/tmux.conf "${HOME}/.tmux.conf"
 ln -sf $(pwd)/tmate.conf "${HOME}/.tmate.conf"
