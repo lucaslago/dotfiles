@@ -23,6 +23,8 @@ brew "bat"
 brew "fd"
 brew "tree"
 brew "pyenv"
+
+cask "font-fira-code-nerd-font"
 cask "stats"
 cask "docker"
 cask "rectangle"
@@ -30,3 +32,4 @@ cask "spotify"
 cask "keycastr"
 cask "graphiql"
 cask "ghostty"
+
